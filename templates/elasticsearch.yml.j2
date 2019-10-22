@@ -1,0 +1,18 @@
+# ---------------------------------- Cluster -----------------------------------
+cluster.name: {{ cluster_name }}
+
+# ------------------------------------ Node ------------------------------------
+node.name: {{ node_name }}
+node.master: {{ is_elasticsearch_master }}
+node.data: {{ is_elasticsearch_data }}
+
+# ----------------------------------- Paths ------------------------------------
+path.data: {{ elasticsearch_data_path }}
+path.logs: {{ elasticsearch_log_path }}
+
+# ---------------------------------- Network -----------------------------------
+network.host: {{ bind_ip|join(',') }}
+http.port: {{ bind_port }}
+
+# --------------------------------- Discovery ----------------------------------
+discovery.seed_hosts: ["host1", "host2"]

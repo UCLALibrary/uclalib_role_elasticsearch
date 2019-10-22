@@ -16,3 +16,5 @@
   service:
     name: elasticsearch
     enabled: yes
+  notify:
+  - start elasticsearch

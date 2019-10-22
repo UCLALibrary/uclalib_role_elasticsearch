@@ -1,6 +1,13 @@
 ---
-# Configure ElasticSearch Default Variables
+cluster_name: "local_cluster"
+node_name: "{{ ansible_hostname }}"
+is_elasticsearch_master: true
+is_elasticsearch_data: true
 
-cluster_name: something
+elasticsearch_data_path: "/var/lib/elasticsearch"
+elasticsearch_log_path: "/var/log/elasticsearch"
 
-
+bind_ip:
+  - "_local_"
+  
+bind_port: 9200
