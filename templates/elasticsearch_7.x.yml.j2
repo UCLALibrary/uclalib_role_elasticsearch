@@ -11,8 +11,10 @@ path.data: {{ elasticsearch_data_path }}
 path.logs: {{ elasticsearch_log_path }}
 
 # ---------------------------------- Network -----------------------------------
-network.host: [{{ bind_ip|join(',') }}]
+network.host: [{{ bind_ip|join(",") }}]
 http.port: {{ bind_port }}
 
 # --------------------------------- Discovery ----------------------------------
-discovery.seed_hosts: ["host1", "host2"]
+{% if discover_eligible_masters is not none %}
+discovery.seed_hosts: [{{ discover_eligible_masters|join(",") }}]
+{% endif %}
