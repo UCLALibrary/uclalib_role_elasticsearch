@@ -15,4 +15,4 @@
 - name: Start ElasticSearch on boot
   service:
     name: elasticsearch
-    state: enabled
+    enabled: yes
