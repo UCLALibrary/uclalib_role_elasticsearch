@@ -1,5 +1,6 @@
 - name: test.yml
-  hosts: all
+  connections: local
+  hosts: localhost
 
   roles:
     - { role: uclalib_role_elasticsearch }
