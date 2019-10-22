@@ -7,7 +7,12 @@
     owner: root
     group: root
 
-- name: Install Elastic Package
+- name: Install ElasticSearch Package
   yum:
     name: elasticsearch
     state: present
+
+- name: Start ElasticSearch on boot
+  service:
+    name: elasticsearch
+    state: enabled
