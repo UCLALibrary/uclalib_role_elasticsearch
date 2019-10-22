@@ -1,5 +1,5 @@
 - name: test.yml
-  connections: local
+  connection: local
   hosts: localhost
 
   roles:
