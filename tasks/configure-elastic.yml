@@ -1,0 +1,10 @@
+---
+- name: Upload ElasticSearch Configuration File
+  template:
+    src: elasticsearch_7.x.yml.j2
+    dest: /etc/elasticsearch/elasticsearch.yml
+    mode: 0660
+    owner: root
+    group: elasticsearch
+  notify:
+    - restart elasticsearch
