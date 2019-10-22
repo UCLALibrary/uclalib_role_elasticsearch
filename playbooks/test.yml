@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - { role: uclalib_role_elasticsearch }

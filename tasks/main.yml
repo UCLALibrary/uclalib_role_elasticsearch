@@ -1,0 +1,7 @@
+#If this is a data node, configure
+#If this is a coordinating node, configure
+#If this is a master eligible node, configure
+---
+- name: Install ElasticSearch
+  include_tasks: install-elastic.yml
+

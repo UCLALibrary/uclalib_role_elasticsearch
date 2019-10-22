@@ -1,0 +1,6 @@
+---
+# Configure ElasticSearch Default Variables
+
+cluster_name: something
+
+
