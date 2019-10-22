@@ -11,7 +11,7 @@ path.data: {{ elasticsearch_data_path }}
 path.logs: {{ elasticsearch_log_path }}
 
 # ---------------------------------- Network -----------------------------------
-network.host: {{ bind_ip|join(',') }}
+network.host: [{{ bind_ip|join(',') }}]
 http.port: {{ bind_port }}
 
 # --------------------------------- Discovery ----------------------------------
