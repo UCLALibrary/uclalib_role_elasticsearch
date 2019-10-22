@@ -15,6 +15,6 @@ network.host: [{{ bind_ip|join(",") }}]
 http.port: {{ bind_port }}
 
 # --------------------------------- Discovery ----------------------------------
-{% if discover_eligible_masters is not none %}
+{% if discover_eligible_masters is defined %}
 discovery.seed_hosts: [{{ discover_eligible_masters|join(",") }}]
 {% endif %}

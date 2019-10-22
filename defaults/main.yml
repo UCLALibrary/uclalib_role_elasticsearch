@@ -11,5 +11,3 @@ bind_ip:
   - "_local_"
   
 bind_port: 9200
-
-discover_eligible_masters: None
