@@ -6,35 +6,48 @@ Usage of this role will configure ElasticSearch 7.x on CentOS and RedHat 7 syste
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should
-be mentioned here. For instance, if the role uses the EC2 module, it may be a
-good idea to mention in this section that the boto package is required.
+No external requirements. If you want to use your own version of Java/OpenJDK, you'll have to set the `JAVA_HOME` environment variable under the `elastic` user.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+* Available Variables
+  * `cluster_name` | string
+  * `node_name` | string
+  * `is_elasticsearch_master`| bool
+  * `is_elasticsearch_data` | bool
+  * `bind_ip` | list<string>
+  * `bind_port` | int
+  * `discover_eligible_masters` | list<string>
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables that
-are used from other roles.
+No Dependencies
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
-
+# Master Eligible Node
     - hosts: servers
       roles:
-         - { role: base, x: 42 }
+         - { role: uclalib_role_elasticsearch }
+
+# Data Node
+    - hosts: servers
+      vars:
+        is_elasticsearch_master: false
+      roles:
+        - { role: uclalib_role_elasticsearch }
+
+# Coordinate Node
+    - hosts: servers
+      vars:
+        is_elasticsearch_master: false
+        is_elasticsearch_data: false
+      roles:
+        - { role: uclalib_role_elasticsearch }
+
 
 License
 -------
@@ -44,5 +57,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a
-website (HTML is not allowed).
+GitHub [issues](https://github.com/UCLALibrary/uclalib_role_elasticsearch/issues) is open in case you'd like to file a ticket or make a suggestion. You can also contact Anthony Vuong at <a href="mailto:avuong@cachemeoutside.io">avuong@cachemeoutside.io</a> if you have a question about the project.
