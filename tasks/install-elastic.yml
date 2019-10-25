@@ -1,0 +1,20 @@
+---
+- name: Configure ElasticSearch repo
+  copy:
+    src: "elasticsearch-yum-repo_{{ ansible_distribution_file_variety }}_{{ ansible_distribution_major_version }}"
+    dest: /etc/yum.repos.d/elasticsearch.repo
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Install ElasticSearch Package
+  yum:
+    name: elasticsearch
+    state: present
+
+- name: Start ElasticSearch on boot
+  service:
+    name: elasticsearch
+    enabled: yes
+  notify:
+    - start elasticsearch

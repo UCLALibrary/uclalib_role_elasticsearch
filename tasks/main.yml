@@ -1,0 +1,6 @@
+---
+- name: Install ElasticSearch
+  include_tasks: install-elastic.yml
+
+- name: Configure ElasticSearch
+  include_tasks: configure-elastic.yml

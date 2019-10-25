@@ -1,0 +1,18 @@
+---
+cluster_name: "local_cluster"
+node_name: "{{ ansible_hostname }}"
+is_elasticsearch_master: true
+is_elasticsearch_data: true
+
+elasticsearch_data_path: "/var/lib/elasticsearch"
+elasticsearch_log_path: "/var/log/elasticsearch"
+
+bind_ip:
+  - "_local_"
+  - "{{ ansible_default_ipv4.address }}"
+ 
+bind_port: 9200
+
+discover_eligible_masters:
+  - host1
+  - host2
