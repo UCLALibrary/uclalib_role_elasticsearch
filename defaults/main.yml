@@ -10,9 +10,9 @@ elasticsearch_log_path: "/var/log/elasticsearch"
 bind_ip:
   - "_local_"
   - "{{ ansible_default_ipv4.address }}"
-  
+ 
 bind_port: 9200
 
-#discover_eligible_masters:
-#  - host1
-#  - host2
+discover_eligible_masters:
+  - host1
+  - host2
