@@ -28,19 +28,19 @@ No Dependencies
 Example Playbook
 ----------------
 
-# Master Eligible Node
+### Master Eligible Node
     - hosts: servers
       roles:
          - { role: uclalib_role_elasticsearch }
 
-# Data Node
+### Data Node
     - hosts: servers
       vars:
         is_elasticsearch_master: false
       roles:
         - { role: uclalib_role_elasticsearch }
 
-# Coordinate Node
+### Coordinate Node
     - hosts: servers
       vars:
         is_elasticsearch_master: false
