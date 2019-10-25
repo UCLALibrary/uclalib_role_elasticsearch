@@ -2,6 +2,10 @@
 sudo: required
 language: python
 
+branches:
+  only:
+    - master
+
 services:
   - docker
 
@@ -14,3 +18,9 @@ install:
 script:
   - molecule test
 
+notifications:
+  email:
+    recipients:
+      - avuong@cachemeoutside.io
+    on_success: change
+    on_failure: change
