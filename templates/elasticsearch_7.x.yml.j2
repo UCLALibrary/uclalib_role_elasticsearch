@@ -14,6 +14,10 @@ path.logs: {{ elasticsearch_log_path }}
 network.host: [{{ bind_ip|join(",") }}]
 http.port: {{ bind_port }}
 
+# --------------------------------- Machine Learning ----------------------------------
+node.ml: {{ is_ml_enabled }}
+xpack.ml.enabled: {{ is_ml_enabled }}
+
 # --------------------------------- Discovery ----------------------------------
 {% if discover_eligible_masters is defined %}
 discovery.seed_hosts: [{{ discover_eligible_masters|join(",") }}]

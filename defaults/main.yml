@@ -20,3 +20,6 @@ discover_eligible_masters:
 initial_master_nodes:
   - nodename1
   - nodename2
+
+is_ml_enabled: false
+
