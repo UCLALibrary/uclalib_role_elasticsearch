@@ -16,3 +16,7 @@ bind_port: 9200
 discover_eligible_masters:
   - host1
   - host2
+
+initial_master_nodes:
+  - nodename1
+  - nodename2

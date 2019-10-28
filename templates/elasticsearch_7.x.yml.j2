@@ -18,3 +18,7 @@ http.port: {{ bind_port }}
 {% if discover_eligible_masters is defined %}
 discovery.seed_hosts: [{{ discover_eligible_masters|join(",") }}]
 {% endif %}
+
+{% if initial_master_nodes is defined %}
+cluster.initial_master_nodes: [{{ initial_master_nodes|join(",") }}]
+{% endif %}
