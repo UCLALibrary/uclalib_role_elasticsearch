@@ -2,5 +2,9 @@
 - name: Install ElasticSearch
   include_tasks: install-elastic.yml
 
+- name: Setup SSL certificates
+  include_tasks: setup-ssl-certificates.yml
+  when: xpack_security.enabled == true
+
 - name: Configure ElasticSearch
   include_tasks: configure-elastic.yml

@@ -18,8 +18,13 @@ http.port: {{ bind_port }}
 node.ml: {{ is_ml_enabled }}
 xpack.ml.enabled: {{ is_ml_enabled | lower }}
 
-# --------------------------------- XPACK Configuration ----------------------------------
-xpack.security.enabled: {{ xpack_security_enabled | lower }}
+{% if xpack_security.enabled %}
+# --------------------------------- XPACK Security Configuration ----------------------------------
+xpack.security.enabled: {{ xpack_security.enabled | lower }}
+xpack.security.transport.ssl.verification_mode: {{ xpack_security.ssl_verification_mode }}
+xpack.security.transport.ssl.keystore.path: {{ xpack_security.ssl_keystore_path }}
+xpack.security.transport.ssl.truststore.path: {{ xpack_security.ssl_truststore_path }}
+{% endif %}
 
 # --------------------------------- Discovery ----------------------------------
 {% if discover_eligible_masters is defined %}

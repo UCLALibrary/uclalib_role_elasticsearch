@@ -5,7 +5,14 @@ is_elasticsearch_master: true
 is_elasticsearch_data: true
 is_ml_enabled: false
 
-xpack_security_enabled: false
+ssl_certificate_src_path: "/path/to/src/certs"
+ssl_base_path: "/etc/pki/tls/certs"
+
+xpack_security:
+  enabled: false
+  ssl_verification_mode: "certificate"
+  ssl_keystore_path: "{{ ssl_base_path }}/elastic-certificates.p12"
+  ssl_truststore_path: "{{ ssl_base_path }}/elastic-certificates.p12"
 
 elasticsearch_data_path: "/var/lib/elasticsearch"
 elasticsearch_log_path: "/var/log/elasticsearch"
