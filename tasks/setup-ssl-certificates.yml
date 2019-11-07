@@ -2,7 +2,7 @@
 - name: Copy PKCS certificates
   copy:
     src: "{{ ssl_certificate_src_path }}"
-    dest: "{{ xpack_security.ssl_keystore_path }}"
+    dest: "{{ xpack_security.pkcs.ssl_keystore_path }}"
     owner: root
     group: elasticsearch
     mode: 0660
@@ -11,7 +11,7 @@
 - name: Copy PEM certificate
   copy:
     src: "{{ ssl_certificate_src_path }}"
-    dest: "{{ xpack_security.ssl_crt_path }}"
+    dest: "{{ xpack_security.pem.ssl_crt_path }}"
     owner: root
     group: elasticsearch
     mode: 0660
@@ -20,7 +20,7 @@
 - name: Copy PEM key
   copy:
     src: "{{ ssl_key_src_path }}"
-    dest: "{{ xpack_security.ssl_key_path }}"
+    dest: "{{ xpack_security.pem.ssl_key_path }}"
     owner: root
     group: elasticsearch
     mode: 0660
@@ -29,7 +29,7 @@
 - name: Copy CA
   copy:
     src: "{{ ssl_ca_src_path }}"
-    dest: "{{ xpack_security.ssl_ca_path }}"
+    dest: "{{ xpack_security.pem.ssl_ca_path }}"
     owner: root
     group: elasticsearch
     mode: 0664
