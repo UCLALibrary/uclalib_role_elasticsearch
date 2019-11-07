@@ -5,6 +5,8 @@ is_elasticsearch_master: true
 is_elasticsearch_data: true
 is_ml_enabled: false
 
+xpack_security_enabled: false
+
 elasticsearch_data_path: "/var/lib/elasticsearch"
 elasticsearch_log_path: "/var/log/elasticsearch"
 
