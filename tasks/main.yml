@@ -4,7 +4,7 @@
 
 - name: Setup SSL certificates
   include_tasks: setup-ssl-certificates.yml
-  when: xpack_security.enabled == true
+  when: xpack_security.enabled
 
 - name: Configure ElasticSearch
   include_tasks: configure-elastic.yml

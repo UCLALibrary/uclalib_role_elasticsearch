@@ -23,8 +23,15 @@ xpack.ml.enabled: {{ is_ml_enabled | lower }}
 xpack.security.enabled: {{ xpack_security.enabled | lower }}
 xpack.security.transport.ssl.enabled: {{ xpack_security.ssl_enabled | lower }}
 xpack.security.transport.ssl.verification_mode: {{ xpack_security.ssl_verification_mode }}
+{% if xpack_security.pkcs.enabled %}
 xpack.security.transport.ssl.keystore.path: {{ xpack_security.ssl_keystore_path }}
 xpack.security.transport.ssl.truststore.path: {{ xpack_security.ssl_truststore_path }}
+{% endif %}
+{% if xpack_security.pem.enabled %}
+xpack.security.transport.ssl.key: {{ ssl_key_path }}
+xpack.security.transport.ssl.certificate: {{ ssl_crt_path }}
+xpack.security.transport.ssl.certificate_authorities: ["{{ ssl_ca_path }}"]
+{% endif %}
 {% endif %}
 
 # --------------------------------- Discovery ----------------------------------
