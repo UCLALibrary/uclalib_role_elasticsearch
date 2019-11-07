@@ -10,6 +10,7 @@ ssl_base_path: "/etc/pki/tls/certs"
 
 xpack_security:
   enabled: false
+  ssl_enabled: false
   ssl_verification_mode: "certificate"
   ssl_keystore_path: "{{ ssl_base_path }}/elastic-certificates.p12"
   ssl_truststore_path: "{{ ssl_base_path }}/elastic-certificates.p12"
