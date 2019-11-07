@@ -33,4 +33,4 @@
     owner: root
     group: elasticsearch
     mode: 0664
-  when: xpack_security.pem.enabled
+  when: xpack_security.pem.enabled and xpack_security.pem.ssl_ca_path is defined
