@@ -16,7 +16,10 @@ http.port: {{ bind_port }}
 
 # --------------------------------- Machine Learning ----------------------------------
 node.ml: {{ is_ml_enabled }}
-xpack.ml.enabled: {{ is_ml_enabled }}
+xpack.ml.enabled: {{ is_ml_enabled | lower }}
+
+# --------------------------------- XPACK Configuration ----------------------------------
+xpack.security.enabled: {{ xpack_security_enabled | lower }}
 
 # --------------------------------- Discovery ----------------------------------
 {% if discover_eligible_masters is defined %}
