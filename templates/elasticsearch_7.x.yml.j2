@@ -3,8 +3,8 @@ cluster.name: {{ cluster_name }}
 
 # ------------------------------------ Node ------------------------------------
 node.name: {{ node_name }}
-node.master: {{ is_elasticsearch_master }}
-node.data: {{ is_elasticsearch_data }}
+node.master: {{ is_elasticsearch_master | lower }}
+node.data: {{ is_elasticsearch_data | lower }}
 
 # ----------------------------------- Paths ------------------------------------
 path.data: {{ elasticsearch_data_path }}
@@ -30,6 +30,8 @@ xpack.security.transport.ssl.truststore.path: {{ xpack_security.ssl_truststore_p
 {% if xpack_security.pem.enabled %}
 xpack.security.transport.ssl.key: {{ xpack_security.pem.ssl_key_path }}
 xpack.security.transport.ssl.certificate: {{ xpack_security.pem.ssl_crt_path }}
+{% endif %}
+{% if xpack_security.pem.ssl_ca_path is defined %}
 xpack.security.transport.ssl.certificate_authorities: ["{{ xpack_security.pem.ssl_ca_path }}"]
 {% endif %}
 {% endif %}

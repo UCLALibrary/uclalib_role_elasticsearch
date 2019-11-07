@@ -22,7 +22,6 @@ xpack_security:
     enabled: false
     ssl_key_path: "{{ ssl_base_path }}/elastic.key"
     ssl_crt_path: "{{ ssl_base_path }}/elastic.crt"
-    ssl_ca_path: "{{ ssl_base_path }}/elastic.ca"
 
 elasticsearch_data_path: "/var/lib/elasticsearch"
 elasticsearch_log_path: "/var/log/elasticsearch"
