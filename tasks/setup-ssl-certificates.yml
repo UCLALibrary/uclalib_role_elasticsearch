@@ -1,8 +1,36 @@
 ---
-- name: Copy precreated SSL certificates
+- name: Copy PKCS certificates
   copy:
     src: "{{ ssl_certificate_src_path }}"
     dest: "{{ xpack_security.ssl_keystore_path }}"
-    owner: elasticsearch
+    owner: root
     group: elasticsearch
-    mode: 0600
+    mode: 0660
+  when: xpack_security.pkcs.enabled
+
+- name: Copy PEM certificate
+  copy:
+    src: "{{ ssl_certificate_src_path }}"
+    dest: "{{ xpack_security.ssl_crt_path }}"
+    owner: root
+    group: elasticsearch
+    mode: 0660
+  when: xpack_security.pem.enabled
+
+- name: Copy PEM key
+  copy:
+    src: "{{ ssl_key_src_path }}"
+    dest: "{{ xpack_security.ssl_key_path }}"
+    owner: root
+    group: elasticsearch
+    mode: 0660
+  when: xpack_security.pem.enabled
+
+- name: Copy CA
+  copy:
+    src: "{{ ssl_ca_src_path }}"
+    dest: "{{ xpack_security.ssl_ca_path }}"
+    owner: root
+    group: elasticsearch
+    mode: 0664
+  when: xpack_security.pem.enabled
