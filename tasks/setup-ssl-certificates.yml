@@ -1,0 +1,8 @@
+---
+- name: Copy precreated SSL certificates
+  copy:
+    src: "{{ ssl_certificate_src_path }}"
+    dest: "{{ xpack_security.ssl_keystore_path }}"
+    owner: elasticsearch
+    group: elasticsearch
+    mode: 0600
